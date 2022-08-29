@@ -1,0 +1,101 @@
+div.scroll-list-container {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+
+  div.scroll-list-contents {
+    display: flex;
+    flex-grow: 1;
+    position: absolute;
+    width: 100%;
+    transition: top $transition ease;
+
+    > .scroll-list {
+      width: 100%;
+
+      > li {
+        height: auto;
+        overflow: hidden;
+        max-height: 480px;
+      }
+
+      > li.item-enter {
+        max-height: 0;
+      }
+      > li.item-enter-active {
+        max-height: 480px;
+        transition: max-height $transition ease-in !important;
+      }
+      > li.item-enter-done {
+        max-height: 480px;
+      }
+      > li.item-exit {
+        max-height: 480px;
+      }
+      > li.item-exit-active {
+        max-height: 0;
+        transition: max-height $transition ease-out !important;
+      }
+      > li.item-exit-done {
+        max-height: 0;
+      }
+    }
+  }
+
+  div.scroll-list-bar {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 10px;
+    height: 36px;
+    background-color: $nord1;
+    border: 1px solid $nord3;
+    transition: top $transition ease;
+
+    &:hover, &.dragging {
+      background-color: $nord0;
+    }
+
+    &.bar-enter {
+      opacity: 0;
+      z-index: 10;
+    }
+    &.bar-enter-active {
+      opacity: 1;
+      z-index: 10;
+      transition: opacity $transition ease;
+    }
+    
+    &.bar-enter-done {
+      opacity: 1;
+      z-index: 10;
+    }
+    &.bar-exit {
+      opacity: 1;
+      z-index: 10;
+    }
+    &.bar-exit-active {
+      opacity: 0;
+      z-index: 10;
+      transition: opacity $transition ease;
+    }
+
+    &.bar-active-enter-active {
+      background-color: $nord0;
+      transition: background-color $transition ease;
+    }
+    &.bar-active-enter-done {
+      background-color: $nord0;
+    }
+    &.bar-active-exit {
+      background-color: $nord0;
+    }
+    &.bar-active-exit-active {
+      background-color: $nord1;
+      transition: background-color $transition ease;
+    }
+  }
+}

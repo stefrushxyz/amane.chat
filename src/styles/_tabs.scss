@@ -1,0 +1,49 @@
+div.tabs {
+  display: flex;
+  flex-direction: column;
+
+  ul.tab-titles {
+    display: flex;
+
+    > li {
+      flex-grow: 1;
+      padding: 8px 0;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      user-select: none;
+      border-bottom: 1px solid $nord3;
+      transition: background-color 0.1s ease, letter-spacing 0.1s ease;
+
+      &:hover {
+        background-color: $nord1;
+        cursor: pointer;
+      }
+
+      &.active {
+        background-color: $nord1;
+        letter-spacing: 2px;
+        border: 1px solid $nord3;
+        border-bottom: none;
+
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  ul.tab-contents {
+    background-color: $nord1;
+    border: 1px solid $nord3;
+    border-top: none;
+
+    > li {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
