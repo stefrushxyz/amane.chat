@@ -1,0 +1,22 @@
+body {
+  background-color: $nord0;
+  color: $nord6;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+video {
+  display: none;
+
+  &.input {
+    visibility: hidden;
+    width: auto;
+    height: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+}
